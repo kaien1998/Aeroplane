@@ -1,0 +1,67 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\untitled2_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\GameBoard.fxml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\GameBoard.fxml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\GameBoard1.fxml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\GameBoard1.fxml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\board2 - Copy.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\board2 - Copy.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\board2.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\board2.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\dice-allFaces.jpg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\dice-allFaces.jpg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\GameBoard.jpeg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\GameBoard.jpeg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\GameBoard1.jpeg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\GameBoard1.jpeg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\icon.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\icon.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-blue(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-blue(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-blue.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-blue.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-green(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-green(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-green.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-green.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-red(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-red(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-red.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-red.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-yellow(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-yellow(1).png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\plane-yellow.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\plane-yellow.png[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\ranking-all.jpg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\ranking-all.jpg[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\ref1.PNG[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\ref1.PNG[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\image\rolling-dice.gif[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\image\rolling-dice.gif[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\myGame$$anon$1$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\myGame$$anon$1$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\myGame$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\myGame$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\myGame$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\myGame$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\myGame$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\myGame$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\myGame.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\myGame.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\NewGameBoard.fxml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\NewGameBoard.fxml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\Style.css[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\Style.css[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\view[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\view[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\view\GameBoardController$Controller.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\view\GameBoardController$Controller.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ds\view\GameBoardController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes\ds\view\GameBoardController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

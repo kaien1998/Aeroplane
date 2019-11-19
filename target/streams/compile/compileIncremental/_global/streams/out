@@ -1,0 +1,52 @@
+[0m[[0m[0mdebug[0m] [0m[0mFull compilation, no sources in previous analysis.[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll sources are invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all sources: number of invalidated sources > 50.0% of all sources[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 2 Scala sources to E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.3.0:compile for Scala 2.12.6[0m
+[0m[[0m[0minfo[0m] [0m[0mNon-compiled module 'compiler-bridge_2.12' for Scala 2.12.6. Compiling...[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreating plain compiler interface for 2.12.6.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  > Arguments: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	-nowarn[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-d[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_b22776d8[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Program Files\Java\jre1.8.0_191\lib\resources.jar;C:\Program Files\Java\jre1.8.0_191\lib\rt.jar;C:\Program Files\Java\jre1.8.0_191\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_191\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_191\lib\jce.jar;C:\Program Files\Java\jre1.8.0_191\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_191\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_191\classes;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.12.6\scala-library-2.12.6.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\google\protobuf\protobuf-java\3.7.0\protobuf-java-3.7.0.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-interface\1.3.0\util-interface-1.3.0.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\compiler-interface\1.3.0\compiler-interface-1.3.0.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\compiler-bridge_2.12\1.3.0\compiler-bridge_2.12-1.3.0-sources.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-compiler\2.12.6\scala-compiler-2.12.6.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\jline\jline\2.14.6\jline-2.14.6.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-reflect\2.12.6\scala-reflect-2.12.6.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-xml_2.12\1.0.6\scala-xml_2.12-1.0.6.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\API.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\Analyzer.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\CallbackGlobal.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\ClassName.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\Command.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\Compat.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\CompilerInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\ConsoleInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\DelegatingReporter.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\Dependency.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\ExtractAPI.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\ExtractUsedNames.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\GlobalHelpers.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\InteractiveConsoleFactory.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\InteractiveConsoleHelper.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\InteractiveConsoleInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\InteractiveConsoleResponse.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\JarUtils.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\JavaUtils.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\LocalToNonLocalClass.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\LocateClassFile.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\Log.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\Message.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chuan\AppData\Local\Temp\sbt_cc647de1\xsbt\ScaladocInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m      [0m
+[0m[[0m[0minfo[0m] [0m[0m  Compilation completed in 12.906s.[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.3.0:compile for Scala 2.12.6[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 6da28e7 for Scala compiler version 2.12.6[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-Xplugin:C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scalamacros\paradise_2.12.6\2.1.1\paradise_2.12.6-2.1.1.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Program Files\Java\jre1.8.0_191\lib\resources.jar;C:\Program Files\Java\jre1.8.0_191\lib\rt.jar;C:\Program Files\Java\jre1.8.0_191\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_191\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_191\lib\jce.jar;C:\Program Files\Java\jre1.8.0_191\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_191\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_191\classes;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.12.6\scala-library-2.12.6.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	E:\Frost\My Documents\Scala Project\Aeroplane\target\scala-2.12\classes;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scalafx\scalafx_2.12\8.0.181-R13\scalafx_2.12-8.0.181-R13.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parser-combinators_2.12\1.1.2\scala-parser-combinators_2.12-1.1.2.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scalafx\scalafxml-core-macros-sfx8_2.12\0.4\scalafxml-core-macros-sfx8_2.12-0.4.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-java8-compat_2.12\0.8.0\scala-java8-compat_2.12-0.8.0.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\ssl-config-core_2.12\0.3.8\ssl-config-core_2.12-0.3.8.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\akka\akka-remote_2.12\2.5.26\akka-remote_2.12-2.5.26.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\akka\akka-protobuf_2.12\2.5.26\akka-protobuf_2.12-2.5.26.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\agrona\agrona\0.9.31\agrona-0.9.31.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\akka\akka-actor_2.12\2.5.26\akka-actor_2.12-2.5.26.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scalafx\scalafxml-core-sfx8_2.12\0.4\scalafxml-core-sfx8_2.12-0.4.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-reflect\2.12.6\scala-reflect-2.12.6.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\io\aeron\aeron-client\1.15.1\aeron-client-1.15.1.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\akka\akka-stream_2.12\2.5.26\akka-stream_2.12-2.5.26.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\reactivestreams\reactive-streams\1.0.2\reactive-streams-1.0.2.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\akka\akka-testkit_2.12\2.5.26\akka-testkit_2.12-2.5.26.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\io\netty\netty\3.10.6.Final\netty-3.10.6.Final.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\com\typesafe\config\1.3.3\config-1.3.3.jar;C:\Users\chuan\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\io\aeron\aeron-driver\1.15.1\aeron-driver-1.15.1.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 17.0739394 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone compiling.[0m
