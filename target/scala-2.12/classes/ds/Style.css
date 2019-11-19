@@ -1,0 +1,46 @@
+.boardBackground{
+	-fx-background-image: url("image/board2.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+}
+
+.backgroundColor{
+	-fx-background-color: black;
+	-fx-background-repeat: no repeat;
+    -fx-background-size: 100% 100%;
+}
+
+.planeYellow{
+	-fx-background-image: url("image/plane-yellow(1).png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-color: transparent;
+	-fx-background-size: 100% 100%;
+}
+
+.planeBlue{
+	-fx-background-image: url("image/plane-blue(1).png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-color: transparent;
+	-fx-background-size: 100% 100%;
+}
+
+.planeRed{
+	-fx-background-image: url("image/plane-red(1).png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-color: transparent;
+	-fx-background-size: 100% 100%;
+}
+
+.planeGreen{
+	-fx-background-image: url("image/plane-green(1).png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-color: transparent;
+	-fx-background-size: 100% 100%;
+}
+
+.score{
+	-fx-font-size: 18pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
