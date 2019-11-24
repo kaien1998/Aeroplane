@@ -1,4 +1,4 @@
-name := "untitled2"
+name := "Aeroplane"
 
 version := "0.1"
 
