@@ -12,6 +12,7 @@ import scalafxml.core.macros.sfxml
 import scala.collection.mutable.ArrayBuffer
 
 
+case class MainRoute(mRoute: ImageView, color: String, isGoalRoute: Boolean)
 @sfxml
 class GameBoardController (
                             var yellowHouse1 : ImageView, var yellowHouse2 : ImageView, var yellowHouse3 : ImageView, var yellowHouse4 : ImageView,
