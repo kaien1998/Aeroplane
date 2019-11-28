@@ -1,19 +1,16 @@
-package ds.view
+package Controller
 
-import ds.myGame.getClass
-import javafx.fxml.FXML
+import scalafx.Includes._
 import scalafx.animation.TranslateTransition
-import scalafx.event.ActionEvent
-import scalafx.scene.control.{Button, Label, TableColumn}
+import scalafx.scene.control.Label
 import scalafx.scene.image.{Image, ImageView}
 import scalafx.scene.input.MouseEvent
-import scalafx.scene.layout.{AnchorPane, GridPane}
+import scalafx.scene.layout.AnchorPane
 import scalafx.util.Duration
 import scalafxml.core.macros.sfxml
-import scalafx.Includes._
-import scalafx.scene.text.Text
 
 import scala.collection.mutable.ArrayBuffer
+
 
 @sfxml
 class GameBoardController (
@@ -36,6 +33,7 @@ class GameBoardController (
                             val board : AnchorPane,
                             var diceCount: Label,
                             var yellowScore: Label, var blueScore: Label, var redScore: Label, var greenScore: Label,
+                            val status: Label
                            // var i: ArrayBuffer[ImageView],
                           ) {
 
@@ -44,13 +42,74 @@ class GameBoardController (
 //    var planeY+i : ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-yellow.png")))
 //  }
 
+val mRoutes = ArrayBuffer[MainRoute](
+  MainRoute(mRoute1, "Red", false),
+  MainRoute(mRoute2, "Yellow", false),
+  MainRoute(mRoute3, "Blue", false),
+  MainRoute(mRoute4, "Green", false),
+  MainRoute(mRoute5, "Red", false),
+  MainRoute(mRoute6, "Yellow", false),
+  MainRoute(mRoute7, "Blue", false),
+  MainRoute(mRoute8, "Green", false),
+  MainRoute(mRoute9, "Red", false),
+  MainRoute(mRoute10, "Yellow", false),
+  MainRoute(mRoute11, "Blue", true),
+  MainRoute(mRoute12, "Green", false),
+  MainRoute(mRoute13, "Red", false),
+  MainRoute(mRoute14, "Yellow", false),
+  MainRoute(mRoute15, "Blue", false),
+  MainRoute(mRoute16, "Green", false),
+  MainRoute(mRoute17, "Red", false),
+  MainRoute(mRoute18, "Yellow", false),
+  MainRoute(mRoute19, "Blue", false),
+  MainRoute(mRoute20, "Green", false),
+  MainRoute(mRoute21, "Red", false),
+  MainRoute(mRoute22, "Yellow", false),
+  MainRoute(mRoute23, "Blue", false),
+  MainRoute(mRoute24, "Green", true),
+  MainRoute(mRoute25, "Red", false),
+  MainRoute(mRoute26, "Yellow", false),
+  MainRoute(mRoute27, "Blue", false),
+  MainRoute(mRoute28, "Green", false),
+  MainRoute(mRoute29, "Red", false),
+  MainRoute(mRoute30, "Yellow", false),
+  MainRoute(mRoute31, "Blue", false),
+  MainRoute(mRoute32, "Green", false),
+  MainRoute(mRoute33, "Red", false),
+  MainRoute(mRoute34, "Yellow", false),
+  MainRoute(mRoute35, "Blue", false),
+  MainRoute(mRoute36, "Green", false),
+  MainRoute(mRoute37, "Red", true),
+  MainRoute(mRoute38, "Yellow", false),
+  MainRoute(mRoute39, "Blue", false),
+  MainRoute(mRoute40, "Green", false),
+  MainRoute(mRoute41, "Red", false),
+  MainRoute(mRoute42, "Yellow", false),
+  MainRoute(mRoute43, "Blue", false),
+  MainRoute(mRoute44, "Green", false),
+  MainRoute(mRoute45, "Red", false),
+  MainRoute(mRoute46, "Yellow", false),
+  MainRoute(mRoute47, "Blue", false),
+  MainRoute(mRoute48, "Green", false),
+  MainRoute(mRoute49, "Red", false),
+  MainRoute(mRoute50, "Yellow", true),
+  MainRoute(mRoute51, "Blue", false),
+  MainRoute(mRoute52, "Green", false),
+);
+
+// yStartRoute = mRoute1
+// bStartRoute = mRoute14
+// gStartRoute = mRoute27
+// rStartRoute = mRoute40
+
+
   ///////////////////////////////////////////Initialize Yellow Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var yScore : Int = 0;
-  var planeY1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-yellow.png")))
-  var planeY2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-yellow.png")))
-  var planeY3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-yellow.png")))
-  var planeY4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-yellow.png")))
+  var planeY1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
+  var planeY2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
+  var planeY3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
+  var planeY4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
   var yellowRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,yRoute6,yRoute5,yRoute4,yRoute3,yRoute2,yRoute1)
   var yellowRoute1: ArrayBuffer[ImageView] = ArrayBuffer(yellowStartPoint,mRoute1,mRoute2,mRoute3,mRoute4,mRoute5,mRoute6,mRoute7,mRoute8,mRoute9,mRoute10,mRoute11,mRoute12,mRoute13,mRoute14,mRoute15,mRoute16,mRoute17,mRoute18,mRoute19,mRoute20,
     mRoute21,mRoute22,mRoute23,mRoute24,mRoute25,mRoute26,mRoute27,mRoute28,mRoute29,mRoute30,mRoute31,mRoute32,mRoute33,mRoute34,mRoute35,mRoute36,mRoute37,mRoute38,mRoute39,mRoute40,
@@ -68,10 +127,10 @@ class GameBoardController (
 ///////////////////////////////////////////Initialize Blue Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var bScore : Int = 0;
-  var planeB1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-blue(1).png")))
-  var planeB2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-blue(1).png")))
-  var planeB3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-blue(1).png")))
-  var planeB4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-blue(1).png")))
+  var planeB1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
+  var planeB2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
+  var planeB3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
+  var planeB4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
   var blueRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,bRoute6,bRoute5,bRoute4,bRoute3,bRoute2,bRoute1)
   var blueRoute1: ArrayBuffer[ImageView] = ArrayBuffer(blueStartPoint,mRoute14,mRoute15,mRoute16,mRoute17,mRoute18,mRoute19,mRoute20,mRoute21,mRoute22,mRoute23,mRoute24,
     mRoute25,mRoute26,mRoute27,mRoute28,mRoute29,mRoute30,mRoute31,mRoute32,mRoute33,mRoute34,mRoute35,mRoute36,mRoute37,mRoute38,mRoute39,mRoute40,mRoute41,mRoute42,mRoute43,mRoute44,
@@ -89,10 +148,10 @@ class GameBoardController (
 ///////////////////////////////////////////Initialize Red Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var rScore : Int = 0;
-  var planeR1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-red(1).png")))
-  var planeR2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-red(1).png")))
-  var planeR3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-red(1).png")))
-  var planeR4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-red(1).png")))
+  var planeR1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
+  var planeR2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
+  var planeR3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
+  var planeR4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
   var redRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,rRoute6,rRoute5,rRoute4,rRoute3,rRoute2,rRoute1)
   var redRoute1: ArrayBuffer[ImageView] = ArrayBuffer(redStartPoint,mRoute40,mRoute41,mRoute42,mRoute43,mRoute44,mRoute45,mRoute46,mRoute47,mRoute48,mRoute49,mRoute50,
     mRoute51,mRoute52,mRoute1,mRoute2,mRoute3,mRoute4,mRoute5,mRoute6,mRoute7,mRoute8,mRoute9,mRoute10,mRoute11,mRoute12,mRoute13,mRoute14,mRoute15,mRoute16,mRoute17,mRoute18,mRoute19,mRoute20,
@@ -110,10 +169,10 @@ class GameBoardController (
 ///////////////////////////////////////////Initialize Green Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var gScore : Int = 0;
-  var planeG1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-green(1).png")))
-  var planeG2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-green(1).png")))
-  var planeG3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-green(1).png")))
-  var planeG4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/ds/image/plane-green(1).png")))
+  var planeG1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
+  var planeG2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
+  var planeG3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
+  var planeG4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
   var greenRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,gRoute6,gRoute5,gRoute4,gRoute3,gRoute2,gRoute1)
   var greenRoute1: ArrayBuffer[ImageView] = ArrayBuffer(greenStartPoint,mRoute27,mRoute28,mRoute29,mRoute30,mRoute31,mRoute32,mRoute33,mRoute34,mRoute35,mRoute36,mRoute37,
     mRoute38,mRoute39,mRoute40,mRoute41,mRoute42,mRoute43,mRoute44,mRoute45,mRoute46,mRoute47,mRoute48,mRoute49,mRoute50,mRoute51,mRoute52,mRoute1,mRoute2,mRoute3,mRoute4,mRoute5,mRoute6,mRoute7,
