@@ -54,9 +54,11 @@
             <Button mnemonicParsing="false" onAction="#selectGreen" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Label layoutX="134.0" layoutY="345.0" prefHeight="37.0" prefWidth="117.0" text="Lobby Status" />
-      <Label fx:id="playerCount" layoutX="262.0" layoutY="345.0" prefHeight="37.0" prefWidth="91.0" />
+      <Label layoutX="130.0" layoutY="351.0" prefHeight="37.0" prefWidth="117.0" text="Total Player" />
+      <Label fx:id="totalPlayer" layoutX="262.0" layoutY="350.0" prefHeight="38.0" prefWidth="28.0" />
       <Button layoutX="514.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleStart" prefHeight="48.0" prefWidth="110.0" text="Start" />
       <Label fx:id="welcomeMsg" layoutX="134.0" layoutY="74.0" text="Label" />
+      <Label fx:id="readyPlayer" layoutX="262.0" layoutY="384.0" prefHeight="38.0" prefWidth="28.0" />
+      <Label layoutX="130.0" layoutY="385.0" prefHeight="37.0" prefWidth="117.0" text="Player Ready" />
    </children>
 </AnchorPane>

@@ -12,7 +12,8 @@ class LobbyController(
     val bluePlayer: Label,
     val redPlayer: Label,
     val greenPlayer: Label,
-    val playerCount: Label,
+    val totalPlayer: Label,
+    val readyPlayer: Label,
     val playerMsg: Label
 ) {
 
@@ -22,6 +23,8 @@ class LobbyController(
     "Red" -> redPlayer,
     "Green" -> greenPlayer
   )
+
+  MyGame.clientRef ! "getTotalPlayer"
 
   def selectYellow(action: ActionEvent): Unit = {
     MyGame.clientRef ! SelectColour("Yellow")
@@ -38,8 +41,22 @@ class LobbyController(
     MyGame.clientRef ! SelectColour("Green")
   }
 
-  def displayPlayerSelection(colour: String, name: String): Unit = {
+  def displayWelcomeMsg(name: String): Unit = {
+    playerMsg.text.value = s"Welcome, $name"
+  }
+
+  def displayTotalPlayer(number: String) {
+    totalPlayer.text.value = number
+  }
+
+  //update selected colour and number of ready player
+  def displayPlayerSelection(
+      colour: String,
+      name: String,
+      number: Int
+  ): Unit = {
     colourMap(colour).text.value = name
+    readyPlayer.text.value = number.toString()
   }
 
   def handleStart(action: ActionEvent): Unit = {

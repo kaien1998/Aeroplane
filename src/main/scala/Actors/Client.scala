@@ -28,24 +28,29 @@ class Client extends Actor {
 
       this.name = name
       val result = server ? Server.Join(context.self)
-      result.foreach(x => {
-        if (x.equals("ok")) {
-          Platform.runLater {
-            MyGame.goToLobby()
+      result
+        .mapTo[ArrayBuffer[String]]
+        .foreach(x => {
+          //when server is not full
+          if (x(0).equals("ok")) {
+            Platform.runLater {
+              MyGame.goToLobby()
+              MyGame.lobbyControllerRef.displayTotalPlayer(x(1))
+            }
+            context.become(lobby)
           }
-          context.become(lobby)
-        }
 
-        if (x.equals("full")) {
-          Platform.runLater {
-            val alert = new Alert(AlertType.Warning) {
-              initOwner(MyGame.stage)
-              title = "Lobby Full"
-              headerText = "Lobby is full. Unable to join."
-            }.showAndWait()
+          //when server is full
+          if (x(0).equals("full")) {
+            Platform.runLater {
+              val alert = new Alert(AlertType.Warning) {
+                initOwner(MyGame.stage)
+                title = "Lobby Full"
+                headerText = "Lobby is full. Unable to join."
+              }.showAndWait()
+            }
           }
-        }
-      })
+        })
     }
 
     case _ => {
@@ -65,6 +70,7 @@ class Client extends Actor {
       val result = server ? Server.SelectColour(context.self, colour, name)
       this.colour = colour
       result.foreach(x => {
+        //when colour is taken
         if (x.equals("taken")) {
           Platform.runLater {
             val alert = new Alert(AlertType.Warning) {
@@ -76,10 +82,21 @@ class Client extends Actor {
       })
     }
 
-    case UpdateLobby(colour, name) => {
+    case UpdateSelection(colour, name, number) => {
       Platform.runLater {
-        MyGame.lobbyControllerRef.displayPlayerSelection(colour, name)
+
+        MyGame.lobbyControllerRef.displayPlayerSelection(colour, name, number)
       }
+    }
+
+    case UpdateTotalPlayer(number) => {
+      Platform.runLater {
+        MyGame.lobbyControllerRef.displayTotalPlayer(number.toString())
+      }
+    }
+
+    case "getTotalPlayer" => {
+      server ! "getTotalPlayer"
     }
 
     case "notReady" => {
@@ -110,7 +127,6 @@ class Client extends Actor {
   }
 
   def gameBoard: Receive = {
-
     case _ => {
       Platform.runLater {
         val alert = new Alert(AlertType.Error) {
@@ -163,5 +179,7 @@ class Client extends Actor {
 object Client {
   final case class Join(ip: String, port: Int, name: String)
   final case class SelectColour(colour: String)
-  final case class UpdateLobby(colour: String, name: String)
+  final case class UpdateSelection(colour: String, name: String, number: Int)
+  final case class UpdateTotalPlayer(number: Int)
+
 }

@@ -27,11 +27,17 @@ class Server extends Actor {
     case Join(x) => {
       if (members.size <= 1) {
         members += x
-        sender ! "ok"
+        sender ! ArrayBuffer[String]("ok", s"${members.size.toString()}")
       }
       //handle when lobby is full
       else {
-        sender ! "full"
+        sender ! ArrayBuffer[String]("full", "")
+      }
+    }
+
+    case "getTotalPlayer" => {
+      for (member <- members) {
+        member ! Client.UpdateTotalPlayer(members.size)
       }
     }
 
@@ -45,14 +51,13 @@ class Server extends Actor {
 
         //broadcast to all member
         for (member <- members) {
-          member ! Client.UpdateLobby(colour, name)
+          member ! Client.UpdateSelection(colour, name, playerColour.size)
         }
       }
 
     }
 
     case "start" => {
-      println("start")
       if (members.size != playerColour.size) {
         for (member <- members) {
           member ! "notReady"
