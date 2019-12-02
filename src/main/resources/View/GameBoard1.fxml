@@ -432,22 +432,22 @@
          <children>
             <ImageView fitHeight="82.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/plane-yellow.png" />
+                  <Image url="@../image/plane-yellow1.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="82.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../image/plane-blue(1).png" />
+                  <Image url="@../image/plane-blue1.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="82.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../image/plane-red(1).png" />
+                  <Image url="@../image/plane-red1.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="82.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../image/plane-green(1).png" />
+                  <Image url="@../image/plane-green1.png" />
                </image>
             </ImageView>
             <Label fx:id="yellowScore" alignment="CENTER" prefHeight="46.0" prefWidth="83.0" text="0" GridPane.columnIndex="1">

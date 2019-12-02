@@ -1,26 +1,49 @@
 package Controller
 
-import Actors.Client.Join
+import Actors.Client._
 import MainSystem.MyGame
 import scalafx.event.ActionEvent
 import scalafx.scene.control.{Label, TextField}
 import scalafx.scene.shape.Circle
 import scalafxml.core.macros.sfxml
 @sfxml
-class MainWindowController(
-    private val ip: TextField,
-    private val port: TextField,
-    private val status: Label
+class LobbyController(
+    val yellowPlayer: Label,
+    val bluePlayer: Label,
+    val redPlayer: Label,
+    val greenPlayer: Label,
+    val playerCount: Label,
+    val playerMsg: Label
 ) {
-  def handleJoin(action: ActionEvent): Unit = {
-    // MyGame.clientRef ! Join(txtServer.text.value, txtPort.text.value.toInt)
+
+  val colourMap: Map[String, Label] = Map(
+    "Yellow" -> yellowPlayer,
+    "Blue" -> bluePlayer,
+    "Red" -> redPlayer,
+    "Green" -> greenPlayer
+  )
+
+  def selectYellow(action: ActionEvent): Unit = {
+    MyGame.clientRef ! SelectColour("Yellow")
   }
-  def handleStart(action: ActionEvent): Unit = {
-    // MyGame.serverRef ! "start"
+  def selectBlue(action: ActionEvent): Unit = {
+    MyGame.clientRef ! SelectColour("Blue")
   }
 
-  def displayStatus(a: String): Unit = {
-    status.text = a
+  def selectRed(action: ActionEvent): Unit = {
+    MyGame.clientRef ! SelectColour("Red")
+  }
+
+  def selectGreen(action: ActionEvent): Unit = {
+    MyGame.clientRef ! SelectColour("Green")
+  }
+
+  def displayPlayerSelection(colour: String, name: String): Unit = {
+    colourMap(colour).text.value = name
+  }
+
+  def handleStart(action: ActionEvent): Unit = {
+    MyGame.serverRef ! "start"
   }
 
 }

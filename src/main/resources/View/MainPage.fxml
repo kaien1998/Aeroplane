@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LobbyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainPageController">
    <children>
       <GridPane layoutX="58.0" layoutY="57.0" prefHeight="108.0" prefWidth="430.0">
         <columnConstraints>
@@ -25,14 +24,14 @@
          <children>
             <Label text="IP" />
             <Label text="Port" GridPane.rowIndex="1" />
-            <Label text="Status" GridPane.rowIndex="2" />
-            <TextField fx:id="ip" GridPane.columnIndex="1" />
+            <TextField fx:id="ip" text="192.168.0.170" GridPane.columnIndex="1" />
             <TextField fx:id="port" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="status" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Name" GridPane.rowIndex="2" />
+            <TextField fx:id="name" text="David" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button layoutX="222.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleJoin" prefHeight="49.0" prefWidth="140.0" text="Join" />
-      <Button layoutX="222.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleStart" prefHeight="49.0" prefWidth="140.0" text="Start" />
+      <Button layoutX="230.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleJoin" prefHeight="49.0" prefWidth="140.0" text="Join" />
    </children>
 </AnchorPane>

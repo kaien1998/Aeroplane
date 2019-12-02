@@ -1,7 +1,7 @@
 package MainSystem
 
-import Controller.GameBoardController
-import Model.Player
+import Controller._
+import Model._
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 import scalafx.scene.Scene
@@ -22,6 +22,7 @@ import scala.collection.JavaConverters._
 
 object MyGame extends JFXApp {
 
+  /******************************Akka Configuration**************************/
   var count = -1
   val addresses = (for (inf <- NetworkInterface.getNetworkInterfaces.asScala;
                         add <- inf.getInetAddresses.asScala) yield {
@@ -45,6 +46,7 @@ object MyGame extends JFXApp {
        |
  |  actor {
        |    provider = "akka.remote.RemoteActorRefProvider"
+       |    warn-about-java-serializer-usage = false
        |  }
        |
  |  remote {
@@ -67,18 +69,56 @@ object MyGame extends JFXApp {
   val serverRef = system.actorOf(Props[Actors.Server](), "server")
   val clientRef = system.actorOf(Props[Actors.Client](), "client")
 
-  val rootResource = getClass.getResource("/View/GameBoard1.fxml")
+  /**********************************************************************************/
+  var lobbyControllerRef: LobbyController#Controller = null
+  var gameBoardControllerRef: GameBoardController#Controller = null
+
+  val rootResource = getClass.getResource("/View/MainPage.fxml")
   val loader = new FXMLLoader(rootResource, NoDependencyResolver)
   loader.load();
   val roots = loader.getRoot[jfxs.layout.AnchorPane]
-  val control =
-    loader.getController[Controller.GameBoardController#Controller]()
+  val control = loader.getController[MainPageController#Controller]
 
   stage = new PrimaryStage {
     title = "AeroplaneGame"
     scene = new Scene {
       root = roots
     }
+  }
+  stage.setResizable(false)
+
+  stage.onCloseRequest = handle({
+    system.terminate
+  })
+
+  def goToMainPage() {
+    val rootResource = getClass.getResource("/View/MainPage.fxml")
+    val loader = new FXMLLoader(rootResource, NoDependencyResolver)
+    loader.load();
+    val roots = loader.getRoot[jfxs.layout.AnchorPane]
+    val scene = new Scene(roots)
+    stage.setScene(scene)
+  }
+
+  def goToLobby() {
+    val rootResource = getClass.getResource("/View/LobbyPage.fxml")
+    val loader = new FXMLLoader(rootResource, NoDependencyResolver)
+    loader.load();
+    val roots = loader.getRoot[jfxs.layout.AnchorPane]
+    lobbyControllerRef = loader.getController[LobbyController#Controller]
+    val scene = new Scene(roots)
+    stage.setScene(scene)
+  }
+
+  def goToGameBoard() {
+    val rootResource = getClass.getResource("/View/GameBoard1.fxml")
+    val loader = new FXMLLoader(rootResource, NoDependencyResolver)
+    loader.load();
+    val roots = loader.getRoot[jfxs.layout.AnchorPane]
+    gameBoardControllerRef =
+      loader.getController[GameBoardController#Controller]
+    val scene = new Scene(roots)
+    stage.setScene(scene)
   }
 
 }

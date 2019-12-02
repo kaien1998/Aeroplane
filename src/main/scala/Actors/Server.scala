@@ -5,56 +5,95 @@ import akka.pattern.ask
 import akka.remote.DisassociatedEvent
 import akka.util.Timeout
 import Actors.Server._
-import scalafx.collections.ObservableHashSet
+// import scalafx.collections.ObservableHashSet
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
+import scalafx.application.Platform
+import scalafx.scene.control.Alert
+import _root_.scalafx.scene.control.Alert.AlertType
+import MainSystem.MyGame
+import scala.collection.mutable.{ArrayBuffer, Map}
 class Server extends Actor {
-  implicit val timeout = Timeout(10.second)
+  implicit val timeout = Timeout(30.second)
 
-  val members = new ObservableHashSet[ActorRef]()
+  // val members = new ObservableHashSet[ActorRef]()
+  var members = new ArrayBuffer[ActorRef]()
   var circularIterOpt: Option[Iterator[ActorRef]] = None
+  var playerColour: Map[String, ActorRef] = Map()
 
   def receive = {
-    case DisassociatedEvent(localAddress, remoteAddress, _) =>
-      if (members.exists(x => x.path.address.equals(remoteAddress))) {
-        val refOpt = members.find(x => x.path.address.equals(remoteAddress))
-        for (ref <- refOpt) {
-          members.remove(ref)
+
+    case Join(x) => {
+      if (members.size <= 4) {
+        members += x
+        sender ! "ok"
+      }
+      //handle when lobby is full
+      else {
+        sender ! "full"
+      }
+    }
+
+    case SelectColour(actorRef, colour, name) => {
+      if (playerColour.contains(colour)) {
+        sender ! "taken"
+
+      } else {
+        playerColour += (colour -> actorRef)
+        sender ! "ok"
+
+        //broadcast to all member
+        for (member <- members) {
+          member ! Client.UpdateLobby(colour, name)
         }
       }
-    case "start" =>
-      context.become(started)
 
-      val results = for (member <- members) yield {
-        member ? "begin"
-      }
-      for (resultf <- results) {
-        Await.result(resultf, 20.second)
-      }
+    }
 
-      //take
-      if (!circularIterOpt.isDefined) {
-        circularIterOpt = Option(Iterator.continually(members.toList).flatten)
+    case "start" => {
+      println("start")
+      if (members.size != playerColour.size) {
+        for (member <- members) {
+          member ! "notReady"
+        }
+      } else {
+        for (member <- members) {
+          member ! "begin"
+        }
       }
-      //iteratr that take 1
-      for (circleIter <- circularIterOpt) {
-        val memberIter = circleIter.take(1)
-        memberIter.next() ! "take"
-      }
+    }
+    // context.become(started)
 
-    case Join(x) =>
-      members += x
-      sender ! "ok"
-    case _ =>
+    // val results = for (member <- members) yield {
+    //   member ? "begin"
+    // }
+    // for (resultf <- results) {
+    //   Await.result(resultf, 20.second)
+    // }
+
+    // //take
+    // if (!circularIterOpt.isDefined) {
+    //   circularIterOpt = Option(Iterator.continually(members.toList).flatten)
+    // }
+    // //iteratr that take 1
+    // for (circleIter <- circularIterOpt) {
+    //   val memberIter = circleIter.take(1)
+    //   memberIter.next() ! "take"
+    // }
+
+    case _ => {
+      Platform.runLater {
+        val alert = new Alert(AlertType.Error) {
+          initOwner(MyGame.stage)
+          title = "Unknown Request"
+          headerText = "Server is unable to handle unknown request"
+        }.showAndWait()
+      }
+    }
   }
 
   def started: Receive = {
-    case DisassociatedEvent(localAddress, remoteAddress, _) =>
-      for (member <- members) {
-        member ! "gameend"
-      }
-
     case Join(x) =>
       sender ! "game in session"
     case "pass" =>
@@ -68,5 +107,6 @@ class Server extends Actor {
 }
 object Server {
   final case class Join(ref: ActorRef)
+  final case class SelectColour(ref: ActorRef, colour: String, name: String)
 
 }

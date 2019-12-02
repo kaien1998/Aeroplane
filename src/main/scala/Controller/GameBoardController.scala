@@ -35,7 +35,6 @@ class GameBoardController (
                             var diceCount: Label,
                             var yellowScore: Label, var blueScore: Label, var redScore: Label, var greenScore: Label,
                             val status: Label
-                           // var i: ArrayBuffer[ImageView],
                           ) {
 
 
@@ -107,10 +106,10 @@ val mRoutes = ArrayBuffer[MainRoute](
   ///////////////////////////////////////////Initialize Yellow Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var yScore : Int = 0;
-  var planeY1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
-  var planeY2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
-  var planeY3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
-  var planeY4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow.png")))
+  var planeY1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow1.png")))
+  var planeY2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow1.png")))
+  var planeY3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow1.png")))
+  var planeY4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-yellow1.png")))
   var yellowRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,yRoute6,yRoute5,yRoute4,yRoute3,yRoute2,yRoute1)
   var yellowRoute1: ArrayBuffer[ImageView] = ArrayBuffer(yellowStartPoint,mRoute1,mRoute2,mRoute3,mRoute4,mRoute5,mRoute6,mRoute7,mRoute8,mRoute9,mRoute10,mRoute11,mRoute12,mRoute13,mRoute14,mRoute15,mRoute16,mRoute17,mRoute18,mRoute19,mRoute20,
     mRoute21,mRoute22,mRoute23,mRoute24,mRoute25,mRoute26,mRoute27,mRoute28,mRoute29,mRoute30,mRoute31,mRoute32,mRoute33,mRoute34,mRoute35,mRoute36,mRoute37,mRoute38,mRoute39,mRoute40,
@@ -128,10 +127,10 @@ val mRoutes = ArrayBuffer[MainRoute](
 ///////////////////////////////////////////Initialize Blue Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var bScore : Int = 0;
-  var planeB1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
-  var planeB2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
-  var planeB3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
-  var planeB4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue(1).png")))
+  var planeB1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue1.png")))
+  var planeB2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue1.png")))
+  var planeB3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue1.png")))
+  var planeB4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-blue1.png")))
   var blueRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,bRoute6,bRoute5,bRoute4,bRoute3,bRoute2,bRoute1)
   var blueRoute1: ArrayBuffer[ImageView] = ArrayBuffer(blueStartPoint,mRoute14,mRoute15,mRoute16,mRoute17,mRoute18,mRoute19,mRoute20,mRoute21,mRoute22,mRoute23,mRoute24,
     mRoute25,mRoute26,mRoute27,mRoute28,mRoute29,mRoute30,mRoute31,mRoute32,mRoute33,mRoute34,mRoute35,mRoute36,mRoute37,mRoute38,mRoute39,mRoute40,mRoute41,mRoute42,mRoute43,mRoute44,
@@ -149,10 +148,10 @@ val mRoutes = ArrayBuffer[MainRoute](
 ///////////////////////////////////////////Initialize Red Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var rScore : Int = 0;
-  var planeR1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
-  var planeR2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
-  var planeR3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
-  var planeR4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red(1).png")))
+  var planeR1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red1.png")))
+  var planeR2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red1.png")))
+  var planeR3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red1.png")))
+  var planeR4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-red1.png")))
   var redRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,rRoute6,rRoute5,rRoute4,rRoute3,rRoute2,rRoute1)
   var redRoute1: ArrayBuffer[ImageView] = ArrayBuffer(redStartPoint,mRoute40,mRoute41,mRoute42,mRoute43,mRoute44,mRoute45,mRoute46,mRoute47,mRoute48,mRoute49,mRoute50,
     mRoute51,mRoute52,mRoute1,mRoute2,mRoute3,mRoute4,mRoute5,mRoute6,mRoute7,mRoute8,mRoute9,mRoute10,mRoute11,mRoute12,mRoute13,mRoute14,mRoute15,mRoute16,mRoute17,mRoute18,mRoute19,mRoute20,
@@ -170,10 +169,10 @@ val mRoutes = ArrayBuffer[MainRoute](
 ///////////////////////////////////////////Initialize Green Plane and Route///////////////////////////////////////////////////////////////////////////
 
   var gScore : Int = 0;
-  var planeG1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
-  var planeG2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
-  var planeG3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
-  var planeG4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green(1).png")))
+  var planeG1 : ImageView  = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green1.png")))
+  var planeG2: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green1.png")))
+  var planeG3: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green1.png")))
+  var planeG4: ImageView = new ImageView(new Image(getClass.getResourceAsStream("/image/plane-green1.png")))
   var greenRoute: ArrayBuffer[ImageView] = ArrayBuffer(goalPoint,gRoute6,gRoute5,gRoute4,gRoute3,gRoute2,gRoute1)
   var greenRoute1: ArrayBuffer[ImageView] = ArrayBuffer(greenStartPoint,mRoute27,mRoute28,mRoute29,mRoute30,mRoute31,mRoute32,mRoute33,mRoute34,mRoute35,mRoute36,mRoute37,
     mRoute38,mRoute39,mRoute40,mRoute41,mRoute42,mRoute43,mRoute44,mRoute45,mRoute46,mRoute47,mRoute48,mRoute49,mRoute50,mRoute51,mRoute52,mRoute1,mRoute2,mRoute3,mRoute4,mRoute5,mRoute6,mRoute7,
