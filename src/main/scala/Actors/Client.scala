@@ -37,7 +37,13 @@ class Client extends Actor {
         }
 
         if (x.equals("full")) {
-          Platform.runLater {}
+          Platform.runLater {
+            val alert = new Alert(AlertType.Warning) {
+              initOwner(MyGame.stage)
+              title = "Lobby Full"
+              headerText = "Lobby is full. Unable to join."
+            }.showAndWait()
+          }
         }
       })
     }
@@ -87,9 +93,23 @@ class Client extends Actor {
 
     case "begin" => {
       Platform.runLater {
+        context.become(gameBoard)
         MyGame.goToGameBoard()
       }
     }
+
+    case _ => {
+      Platform.runLater {
+        val alert = new Alert(AlertType.Error) {
+          initOwner(MyGame.stage)
+          title = "Unknown Request"
+          headerText = "Server is unable to handle unknown request"
+        }.showAndWait()
+      }
+    }
+  }
+
+  def gameBoard: Receive = {
 
     case _ => {
       Platform.runLater {

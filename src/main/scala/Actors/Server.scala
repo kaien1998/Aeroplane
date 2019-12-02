@@ -25,7 +25,7 @@ class Server extends Actor {
   def receive = {
 
     case Join(x) => {
-      if (members.size <= 4) {
+      if (members.size <= 1) {
         members += x
         sender ! "ok"
       }
@@ -94,8 +94,16 @@ class Server extends Actor {
   }
 
   def started: Receive = {
-    case Join(x) =>
-      sender ! "game in session"
+    case Join(x) => {
+      Platform.runLater {
+        val alert = new Alert(AlertType.Information) {
+          initOwner(MyGame.stage)
+          title = "Maximum Capacity"
+          headerText = "Unable "
+        }.showAndWait()
+      }
+    }
+
     case "pass" =>
       sender ! "ok"
       for (circleIter <- circularIterOpt) {
