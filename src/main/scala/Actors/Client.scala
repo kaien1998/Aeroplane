@@ -78,6 +78,17 @@ class Client extends Actor {
               headerText = "Colour is taken"
             }.showAndWait()
           }
+        } else if (x.equals("same")) {
+          Platform.runLater {
+            val alert = new Alert(AlertType.Warning) {
+              initOwner(MyGame.stage)
+              headerText = "Please Select Only One"
+            }.showAndWait()
+          }
+        } else if (x.equals("hideButton")) {
+          Platform.runLater {
+            MyGame.lobbyControllerRef.hideButton(colour)
+          }
         }
       })
     }

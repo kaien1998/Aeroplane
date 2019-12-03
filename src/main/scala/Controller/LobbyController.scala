@@ -3,7 +3,7 @@ package Controller
 import Actors.Client._
 import MainSystem.MyGame
 import scalafx.event.ActionEvent
-import scalafx.scene.control.{Label, TextField}
+import scalafx.scene.control.{Button, Label, TextField}
 import scalafx.scene.shape.Circle
 import scalafxml.core.macros.sfxml
 @sfxml
@@ -14,8 +14,9 @@ class LobbyController(
     val greenPlayer: Label,
     val totalPlayer: Label,
     val readyPlayer: Label,
-    val playerMsg: Label
-) {
+    val playerMsg: Label,
+    var select1: Button, var select2: Button, var select3: Button, var select4: Button
+     ) {
 
   val colourMap: Map[String, Label] = Map(
     "Yellow" -> yellowPlayer,
@@ -31,14 +32,33 @@ class LobbyController(
   }
   def selectBlue(action: ActionEvent): Unit = {
     MyGame.clientRef ! SelectColour("Blue")
+
   }
 
   def selectRed(action: ActionEvent): Unit = {
     MyGame.clientRef ! SelectColour("Red")
+
   }
 
   def selectGreen(action: ActionEvent): Unit = {
     MyGame.clientRef ! SelectColour("Green")
+
+  }
+
+  def hideButton(colour: String): Unit ={
+    if(colour == "Yellow"){
+      select1.disable = true
+      select1.text.value = "Taken"
+    } else if(colour == "Blue"){
+      select2.disable = true
+      select2.text.value = "Taken"
+    } else if(colour == "Red"){
+      select3.disable = true
+      select3.text.value = "Taken"
+    } else if(colour == "Green"){
+      select4.disable = true
+      select4.text.value = "Taken"
+    }
   }
 
   def displayWelcomeMsg(name: String): Unit = {
