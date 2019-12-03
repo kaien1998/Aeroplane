@@ -21,6 +21,7 @@ class Server extends Actor {
   var members = new ArrayBuffer[ActorRef]()
   var circularIterOpt: Option[Iterator[ActorRef]] = None
   var playerColour: Map[String, ActorRef] = Map()
+  var listOfActorRef = new ArrayBuffer[ActorRef]()
 
   def receive = {
 
@@ -41,20 +42,23 @@ class Server extends Actor {
       }
     }
 
+
+
     case SelectColour(actorRef, colour, name) => {
       if (playerColour.contains(colour)) {
         sender ! "taken"
-
+      } else if (listOfActorRef.contains(actorRef)){
+        sender ! "same"
       } else {
         playerColour += (colour -> actorRef)
-        sender ! "ok"
-
+        sender ! "hideButton"
+        //sender ! "ok"
+        listOfActorRef += actorRef
         //broadcast to all member
         for (member <- members) {
           member ! Client.UpdateSelection(colour, name, playerColour.size)
         }
       }
-
     }
 
     case "start" => {
