@@ -35,6 +35,7 @@ class Client extends Actor {
           if (x(0).equals("ok")) {
             Platform.runLater {
               MyGame.goToLobby()
+              MyGame.lobbyControllerRef.displayWelcomeMsg(name)
               MyGame.lobbyControllerRef.displayTotalPlayer(x(1))
             }
             context.become(lobby)

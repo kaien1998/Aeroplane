@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -13,56 +14,98 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LobbyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="748.0" styleClass="backgroundColor" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LobbyController">
    <children>
-      <GridPane layoutX="134.0" layoutY="130.0" prefWidth="479.0">
+      <GridPane layoutX="194.0" layoutY="118.0" prefHeight="235.0" prefWidth="403.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="66.39998779296874" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.5999755859375" minWidth="10.0" prefWidth="215.20001220703128" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.5999755859375" minWidth="10.0" prefWidth="213.00002441406252" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="85.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.5999755859375" minWidth="10.0" prefWidth="182.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.5999755859375" minWidth="10.0" prefWidth="151.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="40.0" prefHeight="58.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="42.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="46.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="56.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/plane-yellow1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+            <ImageView fitHeight="56.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
                   <Image url="@../image/plane-blue1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+            <ImageView fitHeight="56.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
                   <Image url="@../image/plane-red1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+            <ImageView fitHeight="56.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                <image>
                   <Image url="@../image/plane-green1.png" />
                </image>
             </ImageView>
-            <Label fx:id="yellowPlayer" prefHeight="25.0" prefWidth="140.0" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="bluePlayer" prefHeight="25.0" prefWidth="140.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="redPlayer" prefHeight="25.0" prefWidth="140.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="greenPlayer" prefHeight="25.0" prefWidth="140.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="select1" mnemonicParsing="false" onAction="#selectYellow" text="Select" GridPane.columnIndex="2" />
-            <Button fx:id="select2" mnemonicParsing="false" onAction="#selectBlue" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="select3" mnemonicParsing="false" onAction="#selectRed" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="select4" mnemonicParsing="false" onAction="#selectGreen" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="yellowPlayer" prefHeight="25.0" prefWidth="140.0" text="user" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Label>
+            <Label fx:id="bluePlayer" prefHeight="25.0" prefWidth="140.0" text="user" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Label>
+            <Label fx:id="redPlayer" prefHeight="25.0" prefWidth="140.0" text="user" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Label>
+            <Label fx:id="greenPlayer" prefHeight="25.0" prefWidth="140.0" text="user" textFill="#fffbfb" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Label>
+            <Button fx:id="select1" mnemonicParsing="false" onAction="#selectYellow" text="Select" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Button>
+            <Button fx:id="select2" mnemonicParsing="false" onAction="#selectBlue" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Button>
+            <Button fx:id="select3" mnemonicParsing="false" onAction="#selectRed" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Button>
+            <Button fx:id="select4" mnemonicParsing="false" onAction="#selectGreen" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font></Button>
          </children>
       </GridPane>
-      <Label layoutX="130.0" layoutY="351.0" prefHeight="37.0" prefWidth="117.0" text="Total Player" />
-      <Label fx:id="totalPlayer" layoutX="262.0" layoutY="350.0" prefHeight="38.0" prefWidth="28.0" />
-      <Button layoutX="514.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleStart" prefHeight="48.0" prefWidth="110.0" text="Start" />
-      <Label fx:id="welcomeMsg" layoutX="134.0" layoutY="74.0" text="Label" />
-      <Label fx:id="readyPlayer" layoutX="262.0" layoutY="384.0" prefHeight="38.0" prefWidth="28.0" />
-      <Label layoutX="130.0" layoutY="385.0" prefHeight="37.0" prefWidth="117.0" text="Player Ready" />
+      <Label layoutX="130.0" layoutY="375.0" prefHeight="37.0" prefWidth="117.0" text="Total Player" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font></Label>
+      <Label fx:id="totalPlayer" layoutX="262.0" layoutY="374.0" prefHeight="38.0" prefWidth="75.0" text="0 / 4" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font></Label>
+      <Button layoutX="514.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleStart" prefHeight="48.0" prefWidth="110.0" text="Start">
+         <font>
+            <Font name="Microsoft Sans Serif" size="24.0" />
+         </font></Button>
+      <Label fx:id="welcomeMsg" layoutX="130.0" layoutY="61.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="24.0" />
+         </font></Label>
+      <Label fx:id="readyPlayer" layoutX="262.0" layoutY="408.0" prefHeight="38.0" prefWidth="75.0" text="0 / 4" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font></Label>
+      <Label layoutX="130.0" layoutY="409.0" prefHeight="37.0" prefWidth="117.0" text="Player Ready" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>
