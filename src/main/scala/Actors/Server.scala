@@ -17,16 +17,17 @@ import scala.collection.mutable.{ArrayBuffer, Map}
 class Server extends Actor {
   implicit val timeout = Timeout(30.second)
 
-  // val members = new ObservableHashSet[ActorRef]()
+
   var members = new ArrayBuffer[ActorRef]()
   var circularIterOpt: Option[Iterator[ActorRef]] = None
   var playerColour: Map[String, ActorRef] = Map()
   var listOfActorRef = new ArrayBuffer[ActorRef]()
+  var counter:Int = 0
 
   def receive = {
 
     case Join(x) => {
-      if (members.size <= 1) {
+      if (members.size <= 3) {
         members += x
         sender ! ArrayBuffer[String]("ok", s"${members.size.toString()}")
       }
@@ -68,28 +69,31 @@ class Server extends Actor {
         }
       } else {
         for (member <- members) {
-          member ! "begin"
+          member ! Client.Begin(playerColour.keys)
+          context.become(started)
+
         }
+        Thread.sleep(1000)
+        if (!circularIterOpt.isDefined) {
+            circularIterOpt = Option(Iterator.continually(members.toList).flatten)
+          }
+          //iteratr that take 1
+          var clr = for (circleIter <- circularIterOpt) yield {
+          val memberIter = circleIter.take(1)
+          val nextMember = memberIter.next()
+          val colour = playerColour.find(_._2 == nextMember).get._1
+          nextMember! Client.ServerAskRoll(colour)
+          colour
+        }
+
+        for(member <- members){
+          member ! Client.DisplayGameStatus(clr.get, "is rolling")
+        }
+        
       }
     }
-    // context.become(started)
-
-    // val results = for (member <- members) yield {
-    //   member ? "begin"
-    // }
-    // for (resultf <- results) {
-    //   Await.result(resultf, 20.second)
-    // }
-
-    // //take
-    // if (!circularIterOpt.isDefined) {
-    //   circularIterOpt = Option(Iterator.continually(members.toList).flatten)
-    // }
-    // //iteratr that take 1
-    // for (circleIter <- circularIterOpt) {
-    //   val memberIter = circleIter.take(1)
-    //   memberIter.next() ! "take"
-    // }
+    
+    
 
     case _ => {
       Platform.runLater {
@@ -104,26 +108,67 @@ class Server extends Actor {
 
   def started: Receive = {
     case Join(x) => {
-      Platform.runLater {
-        val alert = new Alert(AlertType.Information) {
-          initOwner(MyGame.stage)
-          title = "Maximum Capacity"
-          headerText = "Unable "
-        }.showAndWait()
+      sender ! "started"
+    }
+
+    case Roll(actorRef, colour, dice) =>{
+      for(member  <- members){
+        member ! Client.BroadcastRoll(dice)
+        member ! Client.DisplayGameStatus(colour, "is selecting plane")
+      }
+
+      actorRef ! Client.ServerAskSelectPlane(colour)
+    } 
+
+    case SelectPlane(actorRef, colour, index) => {
+      for(member <- members){
+        member ! Client.BroadcastMove(index, colour)
       }
     }
 
-    case "pass" =>
-      sender ! "ok"
-      for (circleIter <- circularIterOpt) {
-        val memberIter = circleIter.take(1)
-        memberIter.next() ! "take"
+    case "move done" =>{
+      counter += 1
+      if(counter == playerColour.size){
+        counter = 0
+        var clr = for (circleIter <- circularIterOpt) yield {
+          val memberIter = circleIter.take(1)
+          val nextMember = memberIter.next()
+          val colour = playerColour.find(_._2 == nextMember).get._1
+          nextMember! Client.ServerAskRoll(colour)
+          colour
+        }
+
+        for(member <- members){
+          member ! Client.DisplayGameStatus(clr.get, "is rolling")
+        }
       }
-    case _ =>
+      
+    }
+
+     case Win(actorRef, colour) => {
+       for(member <- members){
+         member ! Client.BroadcastWinner(colour)
+       }
+       MyGame.system.stop(context.self)
+     } 
+
+    case _ => {
+      Platform.runLater {
+        val alert = new Alert(AlertType.Error) {
+          initOwner(MyGame.stage)
+          title = "Unknown Request"
+          headerText = "Server is unable to handle unknown request"
+        }.showAndWait()
+      }
+    }
   }
 }
+
 object Server {
   final case class Join(ref: ActorRef)
   final case class SelectColour(ref: ActorRef, colour: String, name: String)
+  final case class Roll(ref: ActorRef, colour: String, dice: Int)
+  final case class SelectPlane(ref: ActorRef, colour: String, index: Int)
+  final case class Win(ref: ActorRef, colour: String)
 
 }

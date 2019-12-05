@@ -81,6 +81,9 @@ object MyGame extends JFXApp {
   val roots = loader.getRoot[jfxs.layout.AnchorPane]
   val control = loader.getController[MainPageController#Controller]
 
+
+ 
+
   stage = new PrimaryStage {
     title = "AeroplaneGame"
     scene = new Scene {
