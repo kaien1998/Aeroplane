@@ -22,6 +22,8 @@ import scala.collection.JavaConverters._
 
 object MyGame extends JFXApp {
 
+  var ipAddress:String = ""
+  var port:Int = -1
   /******************************Akka Configuration**************************/
   var count = -1
   val addresses = (for (inf <- NetworkInterface.getNetworkInterfaces.asScala;
