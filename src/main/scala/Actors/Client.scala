@@ -54,7 +54,17 @@ class Client extends Actor {
         })
     }
 
-    case _ => {
+    case "started" =>{
+      Platform.runLater {
+        val alert = new Alert(AlertType.Warning) {
+          initOwner(MyGame.stage)
+          title = "Game in progress."
+          headerText = "Game has started. Unable to join."
+        }.showAndWait()
+      }
+    }
+
+    case _ => { 
       Platform.runLater {
         val alert = new Alert(AlertType.Error) {
           initOwner(MyGame.stage)
@@ -120,10 +130,11 @@ class Client extends Actor {
       }
     }
 
-    case "begin" => {
+    case Begin(players) => {
       Platform.runLater {
         context.become(gameBoard)
         MyGame.goToGameBoard()
+        MyGame.gameBoardControllerRef.initialize(players)
       }
     }
 
@@ -139,6 +150,59 @@ class Client extends Actor {
   }
 
   def gameBoard: Receive = {
+
+    case ServerAskRoll(colour) =>{
+      Platform.runLater {
+        MyGame.gameBoardControllerRef.serverAskRoll(colour)
+      }
+    }
+
+    case Roll(number) => { 
+      server ! Server.Roll(context.self, this.colour, number)
+    }
+
+    case BroadcastRoll(dice) =>{
+      Platform.runLater{
+        MyGame.gameBoardControllerRef.updateDiceValue(dice)
+      }
+    }
+
+    case ServerAskSelectPlane(colour) =>{
+      Platform.runLater{
+        MyGame.gameBoardControllerRef.serverAskSelectPlane(colour)
+      }
+    } 
+
+    case SelectPlane(index) => {
+      server ! Server.SelectPlane(context.self, this.colour, index)
+    }
+
+    case BroadcastMove(index, colour) =>{
+      Platform.runLater{
+        MyGame.gameBoardControllerRef.serverAskMove(index,colour)
+      }
+    }
+    
+    
+    case DisplayGameStatus(colour, action) =>{
+      Platform.runLater{
+        MyGame.gameBoardControllerRef.displayStatus(s"$colour player $action")
+      }
+    }
+
+    case "move done" => {
+      server ! "move done"
+    }
+
+    case "win" => {
+      server ! Server.Win(context.self, colour)
+    }
+
+    case BroadcastWinner(colour) => {
+      MyGame.gameBoardControllerRef.serverAskDeclareWinner(colour)
+      MyGame.system.stop(context.self)
+    }
+
     case _ => {
       Platform.runLater {
         val alert = new Alert(AlertType.Error) {
@@ -150,48 +214,32 @@ class Client extends Actor {
     }
   }
 
+
+
   def errorMsg = {
     val alert = new Alert(AlertType.Error) {
       initOwner(MyGame.stage)
       title = "Lost connection to server"
       headerText = "Server Connection Lost"
-      contentText = "Could Not Connect to Server! Host closed connection"
+      contentText = "Could Not Connect to Server! Host closed connection "
     }.showAndWait()
   }
-  // def joined: Receive = {
-  //   case Join(ip, port, name) =>
-  //     Platform.runLater {}
 
-  //   case "begin" =>
-  //     Platform.runLater {
-  //       // MyGame.control.hideBall()
-  //     }
-  //     sender ! "taken"
-  //   case "take" =>
-  //     context.become(hasBall)
-  //     Platform.runLater {
-  //       // MyGame.control.showBall()
-  //     }
-  //   case _ =>
-  // }
-  // def hasBall: Receive = {
-  //   case "pass" =>
-  //     for (server <- serverOpt) {
-  //       val result = server ? "pass"
-  //       result foreach { x =>
-  //         Platform.runLater {
-  //           // MyGame.control.hideBall()
-  //         }
-  //         context.become(joined)
-  //       }
-  //     }
-  //   case _ =>
-  // }
 }
 object Client {
   final case class Join(ip: String, port: Int, name: String)
   final case class SelectColour(colour: String)
   final case class UpdateSelection(colour: String, name: String, number: Int)
   final case class UpdateTotalPlayer(number: Int)
+  final case class Begin(players: Iterable[String])
+  final case class ServerAskRoll(colour: String)
+  final case class ServerAskSelectPlane(colour: String)
+  final case class DisplayGameStatus(colour: String, action: String)
+  final case class BroadcastRoll(number: Int)
+  final case class Roll(number: Int)
+  final case class SelectPlane(index: Int)
+  final case class BroadcastMove(index: Int, colour: String)
+  final case class BroadcastWinner(colour: String)
+
 
 }
