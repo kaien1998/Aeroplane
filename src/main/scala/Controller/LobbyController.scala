@@ -3,8 +3,7 @@ package Controller
 import Actors.Client._
 import MainSystem.MyGame
 import scalafx.event.ActionEvent
-import scalafx.scene.control.{Button, Label, TextField}
-import scalafx.scene.shape.Circle
+import scalafx.scene.control.{Button, Label}
 import scalafxml.core.macros.sfxml
 @sfxml
 class LobbyController(
@@ -15,6 +14,7 @@ class LobbyController(
     val totalPlayer: Label,
     val readyPlayer: Label,
     val playerMsg: Label,
+    val welcomeMsg: Label,
     var select1: Button, var select2: Button, var select3: Button, var select4: Button
      ) {
 
@@ -62,11 +62,11 @@ class LobbyController(
   }
 
   def displayWelcomeMsg(name: String): Unit = {
-    playerMsg.text.value = s"Welcome, $name"
+    welcomeMsg.text.value = s"Welcome, $name"
   }
 
   def displayTotalPlayer(number: String) {
-    totalPlayer.text.value = number
+    totalPlayer.text.value = s"$number / 4"
   }
 
   //update selected colour and number of ready player
@@ -76,7 +76,7 @@ class LobbyController(
       number: Int
   ): Unit = {
     colourMap(colour).text.value = name
-    readyPlayer.text.value = number.toString()
+    readyPlayer.text.value = s"$number / 4"
   }
 
   def handleStart(action: ActionEvent): Unit = {
