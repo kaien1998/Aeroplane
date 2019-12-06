@@ -25,6 +25,15 @@ class LobbyController(
     "Green" -> greenPlayer
   )
 
+  val colourButtonMap: Map[String, Button] = Map(
+    "Yellow" -> select1,
+    "Blue" -> select2,
+    "Red" -> select3,
+    "Green" -> select4
+  )
+
+  var selected: Boolean = false
+
   MyGame.clientRef ! "getTotalPlayer"
 
   def selectYellow(action: ActionEvent): Unit = {
@@ -46,18 +55,8 @@ class LobbyController(
   }
 
   def hideButton(colour: String): Unit ={
-    if(colour == "Yellow"){
-      select1.disable = true
-      select1.text.value = "Taken"
-    } else if(colour == "Blue"){
-      select2.disable = true
-      select2.text.value = "Taken"
-    } else if(colour == "Red"){
-      select3.disable = true
-      select3.text.value = "Taken"
-    } else if(colour == "Green"){
-      select4.disable = true
-      select4.text.value = "Taken"
+    for((k,v) <- colourButtonMap){
+      v.disable = true
     }
   }
 
@@ -66,7 +65,7 @@ class LobbyController(
   }
 
   def displayTotalPlayer(number: String) {
-    totalPlayer.text.value = s"$number / 4"
+    totalPlayer.text.value = s"$number"
   }
 
   //update selected colour and number of ready player
@@ -76,7 +75,9 @@ class LobbyController(
       number: Int
   ): Unit = {
     colourMap(colour).text.value = name
-    readyPlayer.text.value = s"$number / 4"
+    readyPlayer.text.value = s"$number"
+    colourButtonMap(colour).text.value = "Taken"
+    colourButtonMap(colour).disable = true
   }
 
   def handleStart(action: ActionEvent): Unit = {

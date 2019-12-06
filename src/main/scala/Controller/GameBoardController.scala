@@ -340,19 +340,17 @@ def serverAskMove(index: Int, colour: String): Unit = {
         }
       }
 
-      //game end condition
-      if(currentPlayer.planeContainer.count(_.atGoal == true) == 4){
-        MyGame.clientRef ! "win"
-      }else{
-        MyGame.clientRef ! "move done"
-      }
-
     }
-
-    
   }.start()
 
+  if(this.players(colour).planeContainer.count(_.atGoal == true) == 4){
+    MyGame.clientRef ! "win"
+  }else{
+    MyGame.clientRef ! "move done"
+  }
 
+  //game end condition
+  
 
 }
 
