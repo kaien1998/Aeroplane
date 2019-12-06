@@ -335,16 +335,27 @@ def serverAskMove(index: Int, colour: String): Unit = {
         }
       }
 
+      Platform.runLater(new Runnable(){
+        override def run {
+          if(currentPlayer.planeContainer.count(_.atGoal == true) == 4){
+        
+            serverAskDeclareWinner(colour)
+          }
+        }
+        Thread.sleep(500)
+      })
+      
     }
   }.start()
 
+  //game end condition
   if(this.players(colour).planeContainer.count(_.atGoal == true) == 4){
     MyGame.clientRef ! "win"
+    serverAskDeclareWinner(colour)
   }else{
     MyGame.clientRef ! "move done"
   }
 
-  //game end condition
   
 
 }
@@ -371,7 +382,7 @@ def movePlane(plane: ImageView,x: Double, y: Double): Unit ={
 
 def activateFade(plane: ImageView): Unit ={
   var fd = new FadeTransition(new Duration(500), plane)
-  fd.setFromValue(1.0)
+  fd.setFromValue(1.2)
   fd.setToValue(0.6)
   fd.setCycleCount(Animation.INDEFINITE)
   fd.play()
