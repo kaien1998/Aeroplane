@@ -200,14 +200,8 @@ def serverAskMove(index: Int, colour: String): Unit = {
     override def run {
       currentPlayerColour = colour
       var currentPlayer = players(currentPlayerColour)
-      var dice =  0
+      var dice = diceCount.text.value.toInt
 
-      if(fixedDice.text.value.toInt > 0){
-        dice = fixedDice.text.value.toInt
-      }
-      else{
-        dice = diceCount.text.value.toInt
-      }
       var plane = currentPlayer.planeContainer(index)
 
       var planeRef = plane.planeRef
@@ -325,16 +319,17 @@ def serverAskMove(index: Int, colour: String): Unit = {
           }else{
             //find next point with same colour
           }
+
           Platform.runLater(new Runnable(){
             override def run {
               movePlane(planeRef, x, y)
               plane.position = nextPosition
             }
+            Thread.sleep(500)
           })
-          Thread.sleep(500)
         }
       }else{
-        if(plane.position == goalPoint){
+        if(plane.position == currentPlayer.goalPoint){
           plane.atGoal = true
           updateGoalPoint(currentPlayer.planeContainer)
         }
@@ -392,7 +387,13 @@ def deactivateFade(plane: ImageView): Unit ={
 
 def rollDice(action: ActionEvent): Unit ={
   var rnd = Random
-  var dice = 1 + rnd.nextInt((6-1)+1)
+  var dice = 0
+  if(fixedDice.text.value.toInt > 0){
+    dice = fixedDice.text.value.toInt
+  }
+  else{
+    dice = 1 + rnd.nextInt((6-1)+1)
+  }
   rollBtn.disable = true
   MyGame.clientRef ! Roll(dice)
 }
